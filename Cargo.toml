@@ -1,5 +1,5 @@
 [package]
-name = "patient_ID_resolver"
+name = "patient_id_resolver"
 version = "0.1.0"
 edition = "2021"
 

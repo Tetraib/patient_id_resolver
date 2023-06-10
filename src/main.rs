@@ -36,7 +36,7 @@ async fn modify_patient_id(
     Ok(())
 }
 
-async fn set_patient_metadata(
+async fn set_metadata(
     orthanc_url: String,
     ressource_type: &str,
     orthanc_id: String,
@@ -58,7 +58,7 @@ async fn set_patient_metadata(
     Ok(())
 }
 
-async fn get_patient_metadata(
+async fn get_metadata(
     ressource_type: &str,
     orthanc_id: String,
     orthanc_url: String,
@@ -76,7 +76,7 @@ async fn on_stable_study(
     State(state): State<AppState>, Path(study_id): Path<String>,
 ) -> StatusCode {
     let orthanc_url= state.orthanc_url;
-    set_patient_metadata(orthanc_url, "studies", study_id, "1025", "modified")
+    set_metadata(orthanc_url, "studies", study_id, "1025", "modified")
         .await
         .unwrap();
     StatusCode::OK
